@@ -192,7 +192,7 @@ Respuesta:
 Las capturas de funcionamiento se encuentran en la carpeta:
 
 ```text
-capturas/
+evidencias/
 ```
 
 Incluyen:
