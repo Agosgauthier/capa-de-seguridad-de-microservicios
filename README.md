@@ -208,3 +208,25 @@ Incluyen:
 
 ```
 ```
+## Ejecutar los tests
+
+### Auth Service
+
+```bash
+cd auth-service
+npm test
+```
+
+### Usuario Service
+
+```bash
+cd usuario-service
+npm test
+```
+
+### Libro Service
+
+```bash
+cd libro-service
+npm test
+```

@@ -1,6 +1,7 @@
 version: "3.9"
 
 services:
+
   mysql:
     image: mysql:8.0
     container_name: microservicios-jwt-db
@@ -18,6 +19,36 @@ services:
 
     volumes:
       - mysql_data:/var/lib/mysql
+
+  auth-service:
+    build: ./auth-service
+    container_name: auth-service
+
+    ports:
+      - "3001:3001"
+
+    depends_on:
+      - mysql
+
+  usuario-service:
+    build: ./usuario-service
+    container_name: usuario-service
+
+    ports:
+      - "3002:3002"
+
+    depends_on:
+      - auth-service
+
+  libro-service:
+    build: ./libro-service
+    container_name: libro-service
+
+    ports:
+      - "3003:3003"
+
+    depends_on:
+      - auth-service
 
 volumes:
   mysql_data:
