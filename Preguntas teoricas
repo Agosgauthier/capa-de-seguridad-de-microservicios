@@ -1,0 +1,42 @@
+Preguntas: 
+
+1. ¿Qué diferencia hay entre decodificar y verificar un JWT?
+
+-Decodificar un JWT permite leer la información almacenada dentro del token (como el ID, el email, el rol y la fecha de expiración), sin comprobar si el token es válido.
+
+Verificar un JWT, en cambio, comprueba que:
+
+El token fue firmado con la clave secreta correcta.
+El token no fue modificado.
+El token no está vencido.
+
+2. ¿Por qué no conviene guardar la contraseña dentro del token?
+
+-No conviene guardar la contraseña porque el contenido de un JWT puede ser decodificado fácilmente.
+
+Por razones de seguridad, el token solo debería contener la información necesaria para identificar al usuario, como:
+
+ID
+Email
+Rol
+
+3. ¿Qué pasa si alguien modifica una parte del token?
+
+-Si alguien modifica cualquier parte del token, la firma digital deja de coincidir con el contenido original.
+
+Como consecuencia, la verificación falla y el servidor rechaza el token, impidiendo el acceso a los recursos protegidos.
+
+4. ¿Para qué sirve la clave secreta?
+
+-La clave secreta se utiliza para:
+
+Firmar el JWT cuando se genera.
+Verificar que el token no haya sido alterado.
+
+Esta clave debe ser conocida únicamente por el servidor.
+
+5. ¿Qué significa que un token esté expirado?
+
+-Un token expirado significa que ya superó el tiempo de validez definido al momento de su creación.
+
+Cuando esto sucede, el servidor rechaza el token y el usuario debe iniciar sesión nuevamente para obtener un nuevo JWT.
